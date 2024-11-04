@@ -1,0 +1,14 @@
+D:\Abhiwan\C#\bin\Debug\net8.0\C#.exe
+D:\Abhiwan\C#\bin\Debug\net8.0\C#.deps.json
+D:\Abhiwan\C#\bin\Debug\net8.0\C#.runtimeconfig.json
+D:\Abhiwan\C#\bin\Debug\net8.0\C#.dll
+D:\Abhiwan\C#\bin\Debug\net8.0\C#.pdb
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.GeneratedMSBuildEditorConfig.editorconfig
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.AssemblyInfoInputs.cache
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.AssemblyInfo.cs
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.csproj.CoreCompileInputs.cache
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.dll
+D:\Abhiwan\C#\obj\Debug\net8.0\refint\C#.dll
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.pdb
+D:\Abhiwan\C#\obj\Debug\net8.0\C#.genruntimeconfig.cache
+D:\Abhiwan\C#\obj\Debug\net8.0\ref\C#.dll
