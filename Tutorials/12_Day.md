@@ -39,6 +39,8 @@ public class TriggerTry : MonoBehaviour
 Often used for areas where you want an action to occur without physical collision. For example, triggers can be used to detect when a player enters a zone (like a checkpoint), picks up an item, or interacts with interactive elements.
 ### Functionality: 
 In code, trigger events like OnTriggerEnter, OnTriggerStay, and OnTriggerExit can be used to define what happens when an object enters, stays in, or exits the trigger area.
+
+
 # 3. Rigidbodies
 ### Purpose: 
 Rigidbody is a component that adds physics-based properties to an object, allowing it to be affected by forces such as gravity, velocity, and collisions.
@@ -68,3 +70,97 @@ Used to prevent fast moving objects from passing through other objects without d
 Restrictions on the Rigidbody’s motion:-
 1. Freeze Position	Stops the Rigidbody moving in the world X, Y and Z axes selectively.
 2. Freeze Rotation	Stops the Rigidbody rotating around the local X, Y and Z axes selectively.
+
+# 4. Adding Physics Forces
+1. To add a force to a GameObject, you need to have a Rigidbody component on it.
+2. You can use the AddForce method from the Rigidbody to apply a force in a specific direction.
+```csharp
+using UnityEngine;
+
+public class AddForceExample : MonoBehaviour
+{
+    public float forceAmount = 10f;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Apply force in the forward direction
+            rb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
+        }
+    }
+}
+```
+```csharp
+AddForce(Vector3 force, ForceMode mode) takes in a direction (Vector3) and the force mode.
+```
+### Force Modes:
+1. ForceMode.Force: Continuous force (affected by mass).
+2. ForceMode.Impulse: Instant force, useful for sudden movements (like jumps).
+3. ForceMode.Acceleration: Continuous but ignores mass.
+4. ForceMode.VelocityChange: Instant, ignores mass, and changes velocity directly.
+
+### Physics Force on axis
+1. We can also apply force on the axis such as (x,y,z).
+like.
+2. Here player.AddForce(float x, float y, float z): for applying forces toward axis.
+```csharp
+using System;
+using Unity.VisualScripting;
+using UnityEngine;
+public class ForceTry : MonoBehaviour
+{
+    // Start is called before the first frame update
+    private Rigidbody player;
+    void Start()
+    {
+        player = GetComponent<Rigidbody>();
+        if(player == null) {
+            Debug.Log("Rigidbody is NULL");
+        }        
+    }
+
+    void Update()
+    {
+        bool btn = Input.GetButtonDown("Jump");
+        if(btn ){
+            player.AddForce(0f,force,0f);                      
+        }        
+    }
+}
+```
+# 5. Adding Physics Torque
+1. Torque is the rotational equivalent of force. It can be applied using AddTorque.
+
+```csharp
+using UnityEngine;
+public class AddTorqueExample : MonoBehaviour
+{
+    public float torqueAmount = 5f;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            // Apply torque to rotate the object around the up axis
+            rb.AddTorque(transform.up * torqueAmount, ForceMode.Impulse);
+        }
+    }
+}
+```
+```csharp
+AddTorque(Vector3 torque, ForceMode mode) applies a rotational force in the specified direction.
+```
+1. Adjust the Force Mode and torqueAmount to control the intensity and behavior of the rotation.
