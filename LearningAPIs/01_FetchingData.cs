@@ -32,6 +32,9 @@ public static class FetchingData
                 response.EnsureSuccessStatusCode();  // Ensures the response has no errors
 
                 var data = await response.Content.ReadFromJsonAsync<DataClass>();  // Deserialize the JSON response
+                string result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(result);
+                Console.WriteLine();//for space
 
                 if (data != null)
                 {
@@ -47,7 +50,7 @@ public static class FetchingData
                 {
                     Console.WriteLine("No data received.");
                 }
-
+                Console.WriteLine();//for space
                 // Adding a small delay to prevent spamming the API with requests
                 await Task.Delay(2000);
             }
