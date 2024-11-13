@@ -42,10 +42,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/* Danndx 2022 (youtube.com/danndx)
-From video: youtu.be/KhvokgokrQE
-thanks - delete me! :) */
-
 
 public class SCR_GetChildren : MonoBehaviour
 {
