@@ -50,41 +50,27 @@ private IEnumerator GetReq(string url)
 ```csharp
 private IEnumerator GetAvatar(string url)
 {
-    // First, make a request (for example, you may be checking for some API response or status)
-    using (UnityWebRequest getRequest = UnityWebRequest.Get(url))  
+    // Now, make the request to download the texture (image)
+    using (UnityWebRequest textureRequest = UnityWebRequestTexture.GetTexture(url))
     {
-        yield return getRequest.SendWebRequest();
+        // Wait for the request to finish
+        yield return textureRequest.SendWebRequest();
 
-        if (getRequest.result == UnityWebRequest.Result.Success)
+        if (textureRequest.result == UnityWebRequest.Result.Success)
         {
-            // Now, make the request to download the texture (image)
-            using (UnityWebRequest textureRequest = UnityWebRequestTexture.GetTexture(url))  
-            {
-                // Wait for the request to finish
-                yield return textureRequest.SendWebRequest();
+            // Get the downloaded texture from the request
+            Texture2D texture = ((DownloadHandlerTexture)textureRequest.downloadHandler).texture;
 
-                if (textureRequest.result == UnityWebRequest.Result.Success)
-                {
-                    // Get the downloaded texture from the request
-                    Texture2D texture = ((DownloadHandlerTexture)textureRequest.downloadHandler).texture;
+            // Create a sprite from the downloaded texture
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 
-                    // Create a sprite from the downloaded texture
-                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-
-                    // Assign the sprite to the Image component
-                    image.sprite = sprite;
-                }
-                else
-                {
-                    // If there's an error in the texture request, print the error message
-                    Debug.LogError("Failed to load avatar image: " + textureRequest.error);
-                }
-            }
+            // Assign the sprite to the Image component
+            image.sprite = sprite;
         }
         else
         {
-            // If there's an error in the initial get request (e.g., API call), print the error message
-            Debug.LogError("Failed to get URL: " + getRequest.error);
+            // If there's an error in the texture request, print the error message
+            Debug.LogError("Failed to load avatar image: " + textureRequest.error);
         }
     }
 }
