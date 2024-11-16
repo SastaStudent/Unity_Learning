@@ -21,15 +21,15 @@
 11. Search XR Interaction Toolkit ( install it).
 12. Go to Sample inside this and Download Sample Assets Starter and XR Device Simulator.
 
-13. Now, Take XR Origin in Project ( Right click on Hierarichy -> XR -> XR Origin). 
-<h5>14. Now Set Right and left hand Controller (From Sample Assets Starter pack).<h5>
+13. Now, Open the XR Origin in the Project (right-click on Hierarchy -> XR -> XR Origin). 
+<h5>14. Now Set Right and Left Hand Controller (From Sample Assets Starter pack).</h5>
 <ol>
-    <li> For, Set up Left and Right hand Controller </li>
-    <li> Go to, Controller and click settion ( XR Controller Setting icon ).</li>
+    <li> For, Set up Left and Right-hand Controller </li>
+    <li> Go to, Controller and click setting ( XR Controller Setting icon ).</li>
     <li> Now, choose XRI Default controller for left and right respectively.</li>
 </ol>
 
-15. After that take XR Device Simulator Prefabs to get VR controller without headset.
+15. After that take XR Device Simulator Prefabs to get a VR controller without the headset.
 
 #### To Skip 13 and 14. 
 You can directly take XR Interaction Setup prefabs from Sample Assets.
