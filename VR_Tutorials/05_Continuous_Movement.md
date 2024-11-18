@@ -86,3 +86,11 @@ The Character Controller is mainly used for third-person or first-person player 
 5. Center: Offsets the position of the character’s collider (capsule) in world space without affecting its pivot point.
 6. Radius: Controls the width of the capsule collider (measured across the X and Z axes).
 7. Height: Controls the height of the capsule collider (along the Y axis). Changing this affects the character’s collision bounds vertically.
+
+# 6. XR Interaction Group
+An XR Interaction Group is a component that manages interactions for multiple Interactors (such as controllers or hands in VR). It ensures that only one Interactor can interact (hover or select) at a time, based on a priority system.
+
+### Key Features:
+1. Priority-Based: Interactors within the group are sorted by priority. The one with the highest priority is selected for interaction.
+2. Continuous Selection: If an Interactor was interacting in the previous frame, it takes priority to continue interacting, even if a higher-priority Interactor is now available.
+3. Nested Groups: Groups can contain other groups, and a nested group is treated as a single Interactor when considering priority. The selected Interactor within a nested group is passed up to the parent group for final interaction selection.
